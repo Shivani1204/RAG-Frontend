@@ -1,7 +1,7 @@
 // controllers/loginCtrl.js
 app.controller('LoginCtrl', function($scope, $location, authService) {
     $scope.user = {
-        email: '',
+        username: '',  // Changed from username to name
         password: ''
     };
     
@@ -15,7 +15,7 @@ app.controller('LoginCtrl', function($scope, $location, authService) {
             })
             .catch(function(error) {
                 // Handle login error
-                $scope.errorMessage = error || 'Invalid email or password';
+                $scope.errorMessage = error || 'Invalid username or password';
             });
     };
 });

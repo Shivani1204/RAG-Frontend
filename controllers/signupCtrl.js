@@ -1,7 +1,7 @@
 // controllers/signupCtrl.js
 app.controller('SignupCtrl', function($scope, $location, authService) {
     $scope.user = {
-        name: '',
+        username: '',
         email: '',
         password: '',
         confirmPassword: ''

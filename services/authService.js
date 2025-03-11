@@ -1,4 +1,3 @@
-// services/authService.js
 app.service('authService', function($q, $location) {
     var currentUser = null;
     
@@ -13,22 +12,22 @@ app.service('authService', function($q, $location) {
             // Get users from localStorage
             var users = JSON.parse(localStorage.getItem('users') || '[]');
             
-            // Find user with matching credentials
+            // Find user with matching username and password
             var foundUser = users.find(function(u) {
-                return u.email === user.email && u.password === user.password;
+                return u.name === user.username && u.password === user.password; // Matching by username
             });
             
             if (foundUser) {
                 // Store logged in user info in session
                 currentUser = {
                     id: foundUser.id,
-                    name: foundUser.name,
-                    email: foundUser.email
+                    name: foundUser.username,
+                    email: foundUser.email // Retaining email in case needed later
                 };
                 sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
                 deferred.resolve(currentUser);
             } else {
-                deferred.reject('Invalid email or password');
+                deferred.reject('Invalid username or password');
             }
         }, 500);
         
@@ -43,18 +42,21 @@ app.service('authService', function($q, $location) {
             // Get existing users
             var users = JSON.parse(localStorage.getItem('users') || '[]');
             
-            // Check if user already exists
+            // Check if username or email already exists
             var existingUser = users.find(function(u) {
-                return u.email === user.email;
+                return u.username === user.username || u.email === user.email; // Check both username and email
             });
             
             if (existingUser) {
-                deferred.reject('Email already in use');
+                deferred.reject('Username or Email already in use');
+            } else if (user.password !== user.confirmPassword) {
+                // Check if password and confirm password match
+                deferred.reject('Password and Confirm Password do not match');
             } else {
                 // Create new user
                 var newUser = {
                     id: Date.now().toString(),
-                    name: user.name,
+                    name: user.username,
                     email: user.email,
                     password: user.password // In a real app, this would be hashed
                 };
