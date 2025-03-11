@@ -1,0 +1,77 @@
+/* styles/style.css */
+body {
+    background-color: #f5f5f5;
+    padding-top: 40px;
+}
+
+.form-signin, .form-signup {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-signin .form-signin-heading,
+.form-signup .form-signup-heading {
+    margin-bottom: 20px;
+}
+
+.form-signin .form-control,
+.form-signup .form-control {
+    position: relative;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.card {
+    margin: 20px 0;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.chat-container {
+    height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    max-width: 80%;
+}
+
+.user-message {
+    background-color: #dcf8c6;
+    margin-left: auto;
+}
+
+.bot-message {
+    background-color: #f1f0f0;
+}
+
+.file-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.file-actions {
+    display: flex;
+    gap: 10px;
+}

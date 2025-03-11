@@ -1,0 +1,49 @@
+<!-- views/knowledge-base.html -->
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#!home">My App</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!home">Back to Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" ng-click="logout()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="text-center mb-4">Knowledge Base</h2>
+        
+        <div class="mb-4">
+            <form ng-submit="uploadFile()">
+                <div class="input-group">
+                    <input type="file" class="form-control" id="fileInput" ng-model="selectedFile">
+                    <button class="btn btn-success" type="submit">Upload</button>
+                </div>
+            </form>
+        </div>
+        
+        <div>
+            <h4>Your Files</h4>
+            <div ng-if="files.length === 0" class="alert alert-info">
+                No files uploaded yet.
+            </div>
+            
+            <div class="file-item" ng-repeat="file in files">
+                <div>
+                    <strong>{{file.name}}</strong>
+                    <p class="text-muted mb-0">Uploaded: {{file.date}}</p>
+                </div>
+                <div class="file-actions">
+                    <button class="btn btn-sm btn-primary" ng-click="viewFile(file)">View</button>
+                    <button class="btn btn-sm btn-danger" ng-click="deleteFile(file)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>My AngularJS App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <div ng-view></div>
+    </div>
+
+    <!-- Angular Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.3/angular-route.min.js"></script>
+    
+    <!-- App Scripts -->
+    <script src="app.js"></script>
+    
+    <!-- Controllers -->
+    <script src="controllers/loginCtrl.js"></script>
+    <script src="controllers/signupCtrl.js"></script>
+    <script src="controllers/homeCtrl.js"></script>
+    <script src="controllers/chatCtrl.js"></script>
+    <script src="controllers/knowledgeBaseCtrl.js"></script>
+    
+    <!-- Services -->
+    <script src="services/authService.js"></script>
+    <script src="services/chatService.js"></script>
+    <script src="services/fileService.js"></script>
+</body>
+</html>
