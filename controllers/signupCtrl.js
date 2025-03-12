@@ -1,11 +1,6 @@
 // controllers/signupCtrl.js
 app.controller('SignupCtrl', function($scope, $location, authService) {
-    $scope.user = {
-        username: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
-    };
+    $scope.user = {};
     
     $scope.errorMessage = '';
     
@@ -27,3 +22,4 @@ app.controller('SignupCtrl', function($scope, $location, authService) {
             });
     };
 });
+

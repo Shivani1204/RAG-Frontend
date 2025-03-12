@@ -1,9 +1,6 @@
 // controllers/loginCtrl.js
 app.controller('LoginCtrl', function($scope, $location, authService) {
-    $scope.user = {
-        username: '',  // Changed from username to name
-        password: ''
-    };
+    $scope.user = {};
     
     $scope.errorMessage = '';
     
@@ -19,3 +16,4 @@ app.controller('LoginCtrl', function($scope, $location, authService) {
             });
     };
 });
+
